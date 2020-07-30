@@ -69,6 +69,16 @@ document.getElementById("submitButton").addEventListener("click",function() {
    else{
     document.getElementById("unmatchedPin").style.display = "block";
    }
+   let tryLeft = parseInt(document.getElementById("tryNumber").innerHTML);
+   tryLeft--;
+   if(tryLeft>=0){
+    document.getElementById("tryNumber").innerHTML = tryLeft;
+   }
+   else{
+    document.getElementById("tryNumber").innerHTML = 0;
+   }
+
+
 });
 
 //Erasing part 
