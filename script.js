@@ -71,5 +71,15 @@ document.getElementById("submitButton").addEventListener("click",function() {
    }
 });
 
+//Erasing part 
+document.getElementById("clearButton").addEventListener("click",function(){
+    document.getElementById("userInput").value = 0;
+});
+
+document.getElementById("singleNumberEraser").addEventListener("click",function() {
+   let userInput = document.getElementById("userInput").value;
+   document.getElementById("userInput").value = Math.floor(userInput/10);
+   
+});
 
 
