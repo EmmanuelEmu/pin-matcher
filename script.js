@@ -14,6 +14,8 @@ function inputNumber(inputId) {
     let initialNumber = parseInt(document.getElementById("userInput").value);
     let userGiven = initialNumber * 10 + calculatorNumber;
     document.getElementById("userInput").value = userGiven;
+    document.getElementById("userInput").style.textAlign = "center";
+    
 }
 
 //calculator part 
@@ -68,27 +70,33 @@ document.getElementById("submitButton").addEventListener("click",function() {
    }
    else{
     document.getElementById("unmatchedPin").style.display = "block";
-   }
-   let tryLeft = parseInt(document.getElementById("tryNumber").innerHTML);
-   tryLeft--;
-   if(tryLeft>=0){
-    document.getElementById("tryNumber").innerHTML = tryLeft;
-   }
-   else{
-    document.getElementById("tryNumber").innerHTML = 0;
+    let tryLeft = parseInt(document.getElementById("tryNumber").innerHTML);
+    tryLeft--;
+    if(tryLeft>=0){
+     document.getElementById("tryNumber").innerHTML = tryLeft;
+    }
+    else{
+     document.getElementById("tryNumber").innerHTML = 0;
+    }
    }
 
 
 });
 
 //Erasing part 
+function undisplayText() {
+    document.getElementById("matchedPin").style.display = "none";
+    document.getElementById("unmatchedPin").style.display = "none";
+}
 document.getElementById("clearButton").addEventListener("click",function(){
     document.getElementById("userInput").value = 0;
+    undisplayText();
 });
 
 document.getElementById("singleNumberEraser").addEventListener("click",function() {
    let userInput = document.getElementById("userInput").value;
    document.getElementById("userInput").value = Math.floor(userInput/10);
+   undisplayText();
    
 });
 
