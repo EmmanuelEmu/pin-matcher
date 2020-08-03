@@ -68,14 +68,14 @@ document.getElementById("submitButton").addEventListener("click",function() {
    }
    else{
     document.getElementById("unmatchedPin").style.display = "block";
-   }
-   let tryLeft = parseInt(document.getElementById("tryNumber").innerHTML);
-   tryLeft--;
-   if(tryLeft>=0){
-    document.getElementById("tryNumber").innerHTML = tryLeft;
-   }
-   else{
-    document.getElementById("tryNumber").innerHTML = 0;
+    let tryLeft = parseInt(document.getElementById("tryNumber").innerHTML);
+    tryLeft--;
+    if(tryLeft>=0){
+     document.getElementById("tryNumber").innerHTML = tryLeft;
+    }
+    else{
+     document.getElementById("tryNumber").innerHTML = 0;
+    }
    }
 
 
@@ -84,11 +84,15 @@ document.getElementById("submitButton").addEventListener("click",function() {
 //Erasing part 
 document.getElementById("clearButton").addEventListener("click",function(){
     document.getElementById("userInput").value = 0;
+    document.getElementById("matchedPin").style.display = "none";
+    document.getElementById("unmatchedPin").style.display = "none";
 });
 
 document.getElementById("singleNumberEraser").addEventListener("click",function() {
    let userInput = document.getElementById("userInput").value;
    document.getElementById("userInput").value = Math.floor(userInput/10);
+   document.getElementById("matchedPin").style.display = "none";
+   document.getElementById("unmatchedPin").style.display = "none";
    
 });
 
