@@ -14,6 +14,8 @@ function inputNumber(inputId) {
     let initialNumber = parseInt(document.getElementById("userInput").value);
     let userGiven = initialNumber * 10 + calculatorNumber;
     document.getElementById("userInput").value = userGiven;
+    document.getElementById("userInput").style.textAlign = "center";
+    
 }
 
 //calculator part 
@@ -82,17 +84,19 @@ document.getElementById("submitButton").addEventListener("click",function() {
 });
 
 //Erasing part 
-document.getElementById("clearButton").addEventListener("click",function(){
-    document.getElementById("userInput").value = 0;
+function undisplayText() {
     document.getElementById("matchedPin").style.display = "none";
     document.getElementById("unmatchedPin").style.display = "none";
+}
+document.getElementById("clearButton").addEventListener("click",function(){
+    document.getElementById("userInput").value = 0;
+    undisplayText();
 });
 
 document.getElementById("singleNumberEraser").addEventListener("click",function() {
    let userInput = document.getElementById("userInput").value;
    document.getElementById("userInput").value = Math.floor(userInput/10);
-   document.getElementById("matchedPin").style.display = "none";
-   document.getElementById("unmatchedPin").style.display = "none";
+   undisplayText();
    
 });
 
